@@ -12,7 +12,7 @@ export const GlobalConfigCollection: Collection = {
   fields: [
     {
       name: "seo",
-      label: "General site config",
+      label: "SEO",
       type: "object",
       fields: [
         {
@@ -27,21 +27,59 @@ export const GlobalConfigCollection: Collection = {
           type: "string",
           required: true,
         },
+      ],
+    },
+    {
+      name: "footer",
+      label: "Footer",
+      type: "object",
+      fields: [
         {
           name: "siteOwner",
-          label: "Your Name, Company Name (Used in the footer",
+          label: "Your Name, Company Name (Used in the footer)",
           required: true,
           type: "string",
           ui: {
             defaultValue: "Your name here",
           },
         },
-        // Add more settings here...
+        {
+          name: "content",
+          label: "Footer Content",
+          required: true,
+          type: "string",
+          ui: {
+            component: "textarea",
+          },
+        },
+        {
+          type: "string",
+          name: "certificateContent",
+          label: "WBE Certificate Content",
+          ui: {
+            component: "textarea",
+          },
+        },
+        {
+          type: "image",
+          name: "certificateImage",
+          label: "WBE Certificate Image",
+        },
+        {
+          type: "string",
+          name: "email",
+          label: "Email",
+        },
+        {
+          type: "string",
+          name: "phone",
+          label: "Phone",
+        },
       ],
     },
     {
       name: "nav",
-      label: "Site Navigation Menu (Reorder, Add, Remove)",
+      label: "Site Navigation Menu",
       type: "object",
       list: true,
       ui: {

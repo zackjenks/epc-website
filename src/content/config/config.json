@@ -1,8 +1,15 @@
 {
   "seo": {
     "title": "EnviroPlus Consulting",
-    "description": "Biological, environmental and archaeological monitoring and surveys",
-    "siteOwner": "EnviroPlus Consulting LLC"
+    "description": "Biological, environmental and archaeological monitoring and surveys"
+  },
+  "footer": {
+    "siteOwner": "EnviroPlus Consulting LLC",
+    "content": "EnviroPlus Consulting was established in 1987 and was organized as an LLC in 2013. EPC has been providing biological services for over 35 years.",
+    "certificateContent": "EnviroPlus is a California Public Utilities Commission Certified Woman Owned Business Enterprise (WBE) – VON# 13070086.",
+    "certificateImage": "/Screenshot 2026-01-13 at 12.23.35 AM.png",
+    "email": "info@enviroplusconsulting.com",
+    "phone": "(805) 231-1149"
   },
   "nav": [
     {

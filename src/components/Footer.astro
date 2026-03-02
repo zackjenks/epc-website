@@ -1,33 +1,78 @@
 ---
 import config from "../content/config/config.json";
-import IconLink from "./react/IconLink";
 const today = new Date();
-
 ---
+
 	<footer class="bg-primary text-white mt-8 py-8 font-light">
 	<div class="container">
-    <div class="grid lg:grid-cols-4 gap-20">
+    <div class="grid lg:grid-cols-5 gap-20">
      	<div class="lg:col-span-2">
        	<h2 class="text-2xl">About Us</h2>
-       	<p class="font-light leading-relaxed mt-2">EnviroPlus Consulting was established in 1987 and was organized as an LLC in 2013. EPC has been providing biological services for over 35 years.</p>
+       	<p class="font-light leading-relaxed mt-2">{config.footer.content}</p>
+
+     	</div>
+
+      <!-- {config.footer.certificate && <div class="flex gap-2 mt-8 items-center">
+        <p class="w-[200px] font-medium"></p>
+
+      </div>} -->
+     	<div class="lg:col-span-2">
+       	<h2 class="text-2xl">WBE</h2>
+        <p class="font-light leading-relaxed mt-2">
+          {config.footer.certificateContent}
+        </p>
+        <button class="mt-2" id="certificate">
+           <img class="w-24" src={config.footer.certificateImage} transition:name="certificate" />
+        </button>
      	</div>
      	<div>
        	<h2 class="text-2xl">Contact Us</h2>
         <div class="mt-2 space-y-2 [&_svg]:w-5 [&_svg]:min-w-5 [&_a]:hover:underline">
           <div class="flex gap-2 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-            <a href="mailto:info@enviroplusconsulting.com">info@enviroplusconsulting.com</a>
+            <a href="mailto:info@enviroplusconsulting.com">{config.footer.email}</a>
           </div>
           <div class="flex gap-2 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
-            <a href="tel:8052311149">(805) 231-1149</a>
+            <a href="tel:8052311149">{config.footer.phone}</a>
           </div>
         </div>
       </div>
     </div>
-  	<div class="font-light text-sm mt-16">
-     Copyright &copy; {today.getFullYear()} {config.seo.siteOwner}. All rights reserved.
+  	<div class="font-light text-sm mt-16 text-center">
+     Copyright &copy; {today.getFullYear()} {config.footer.siteOwner}. All rights reserved.
     </div>
 	</div>
+</footer>
 
-	</footer>
+<div class="fixed justify-center inset-0 bg-black/30 hidden items-center" id="modal">
+  <button class="absolute top-8 right-8 text-white" id='modal-close'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+  </button>
+
+  <img class="max-w-[80vw] max-h-[80vh]" src={config.footer.certificateImage}  transition:name="certificate"  />
+</div>
+
+<script>
+const certificateButton = document.getElementById('certificate')
+const modal = document.getElementById('modal')
+const modalClose = document.getElementById('modal-close')
+certificateButton?.addEventListener('click', () => {
+  modal?.classList.remove('hidden')
+  modal?.classList.add('flex')
+})
+
+function closeModal() {
+  modal?.classList.remove('flex')
+  modal?.classList.add('hidden')
+}
+
+modalClose?.addEventListener('click', () => {
+  closeModal()
+})
+modal?.addEventListener('click', e => {
+  if (e.target.tagName === 'IMG') return
+
+  closeModal()
+})
+</script>
