@@ -67,6 +67,18 @@ const Blocks = ({ page }: { page: PageQuery["page"] }) => {
               </div>
             );
 
+          case "PageContentLogoList":
+            return (
+              <div className="space-y-4">
+                <h2 className="font-bold text-2xl">{block.heading}</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 items-center gap-x-20 gap-y-4">
+                  {block.logos?.map((logo) => (
+                    <img src={logo}></img>
+                  ))}
+                </div>
+              </div>
+            );
+
           case "PageContentGrid":
             return (
               <div

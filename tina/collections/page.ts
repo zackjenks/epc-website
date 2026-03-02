@@ -12,6 +12,24 @@ const richTextBlock: Template = {
   ],
 };
 
+const logoListBlock: Template = {
+  name: "logoList",
+  label: "Logo list",
+  fields: [
+    {
+      type: "string",
+      label: "Heading",
+      name: "heading",
+    },
+    {
+      type: "image",
+      label: "Logos",
+      list: true,
+      name: "logos",
+    },
+  ],
+};
+
 const imageBlock: Template = {
   name: "image",
   label: "Image",
@@ -146,7 +164,13 @@ export const PageCollection: Collection = {
       type: "object",
       list: true,
       label: "Content",
-      templates: [richTextBlock, imageBlock, embedBlock, gridBlock],
+      templates: [
+        richTextBlock,
+        imageBlock,
+        embedBlock,
+        gridBlock,
+        logoListBlock,
+      ],
     },
     // {
     //   name: "body",
